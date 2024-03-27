@@ -8,6 +8,7 @@ CREATE TABLE IF NOT EXISTS games (
   id uuid default uuid_generate_v4(),
   player_one varchar not null,
   player_two varchar,
+  contract_address varchar not null default '', 
   is_finished boolean default false,
 
   primary key (id),
