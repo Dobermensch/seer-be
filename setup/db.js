@@ -1,5 +1,5 @@
-const fastifyPlugin = require('fastify-plugin');
-const fastifyPostgres = require('@fastify/postgres');
+const fastifyPlugin = require("fastify-plugin");
+const fastifyPostgres = require("@fastify/postgres");
 
 async function dbConnector (fastify, options) {
   const dbUser = encodeURIComponent(process.env.DATABASE_USERNAME);
@@ -8,13 +8,13 @@ async function dbConnector (fastify, options) {
   const dbName = encodeURIComponent(process.env.DATABASE_NAME);
   const dbPort = process.env.DATABASE_PORT;
 
-  const connectionString = process.env.NODE_ENV === 'production' ? process.env.DATABASE_URL : `postgres://${dbUser}:${dbPassword}@${dbHost}:${dbPort}/${dbName}`
+  const connectionString = process.env.NODE_ENV === "production" ? process.env.DATABASE_URL : `postgres://${dbUser}:${dbPassword}@${dbHost}:${dbPort}/${dbName}`
   const config = {
     connectionString,
   }
 
-  if (process.env.NODE_ENV === 'production') {
-    config['ssl'] = { rejectUnauthorized: false }
+  if (process.env.NODE_ENV === "production") {
+    config["ssl"] = { rejectUnauthorized: false }
   }
 
   fastify.register(fastifyPostgres, config)
