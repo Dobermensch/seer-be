@@ -1,5 +1,3 @@
-const fastify = require("fastify")
-
 const getAllUserGamesByAddress = async (fastify, userAddress) => {
   const client = await fastify.pg.connect()
   try {
@@ -12,8 +10,8 @@ const getAllUserGamesByAddress = async (fastify, userAddress) => {
     )
 
     return {
-      playerOneGames,
-      playerTwoGames
+      playerOneGames: [...playerOneGames],
+      playerTwoGames: [...playerTwoGames]
     }
   } catch (e) {
     fastify.log.error(e)
