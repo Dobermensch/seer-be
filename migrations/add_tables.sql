@@ -11,5 +11,6 @@ CREATE TABLE IF NOT EXISTS games (
   contract_address varchar not null default '', 
   is_finished boolean default false,
 
-  primary key (id),
+  primary key (id)
 );
+

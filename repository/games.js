@@ -10,8 +10,8 @@ const getAllUserGamesByAddress = async (fastify, userAddress) => {
     )
 
     return {
-      playerOneGames: [...playerOneGames],
-      playerTwoGames: [...playerTwoGames]
+      playerOneGames,
+      playerTwoGames
     }
   } catch (e) {
     fastify.log.error(e)
