@@ -12,3 +12,4 @@ yarn dev
 
 ## Improvements
 - require user auth for endpoints
+- add index on player_one in games table & use player_one in WHERE condition in sql to improve finishGame function 
